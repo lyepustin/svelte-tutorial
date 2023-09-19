@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 
-  // import session from '$lib/session';
-	// import { signInWithPopup } from 'firebase/auth';
-  // import { firebaseAuth, GoogleProvider } from '$lib/firebase';
+	import { signInWithPopup } from 'firebase/auth';
+
+  export let data;
 
   let email: string;
   let password: string;
 
-  function signIn() {
-    // const result = await signInWithPopup(firebaseAuth, GoogleProvider);
-    // console.log(result);
+  async function signIn() {
+    const result = await signInWithPopup(data.auth, data.google);
+    console.log(result);
     goto("/dashboard")
   }
 
